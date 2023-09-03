@@ -9,15 +9,15 @@
 		<relativePath />
 	</parent>
 
-	<artifactId>parameter-separator</artifactId>
+	<artifactId>parameter-separator-toggle</artifactId>
 	<packaging>hpi</packaging>
 	<version>${changelist}</version>
 
-	<name>Parameter Separator Plugin</name>
-	<url>https://github.com/jenkinsci/parameter-separator-plugin</url>
+	<name>Parameter Separator Toggle Plugin</name>
+	<url>https://github.com/AroNabster/parameter-separator-toggle-plugin</url>
 	<properties>
-		<changelist>999999-SNAPSHOT</changelist>
-		<gitHubRepo>jenkinsci/parameter-separator-plugin</gitHubRepo>
+		<changelist>1.0</changelist>
+		<gitHubRepo>AroNabster/parameter-separator-toggle-plugin</gitHubRepo>
 		<jenkins.version>2.401.3</jenkins.version>
 	</properties>
 	<scm>

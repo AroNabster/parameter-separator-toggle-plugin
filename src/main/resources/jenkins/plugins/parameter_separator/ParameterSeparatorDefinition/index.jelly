@@ -9,11 +9,59 @@ See the file license.txt for copying permission.
 		<div name="parameter">
 			<input type="hidden" name="name" value="${it.name}" />
 		</div>
-		<hr style="${it.effectiveSeparatorStyle}" />
+		
 		<j:if test="${it.needsSectionHeader()}">
-			<div style="${it.effectiveSectionHeaderStyle}">
+			<div style="${it.effectiveSectionHeaderStyle}" class="toggle_parameter_separator" onclick="mySlide(this);">
 				<j:out value="${it.formattedSectionHeader}" />
 			</div>
 		</j:if>
+		<script>
+			let domContentLoadedExecuted = false;
+			document.addEventListener("DOMContentLoaded", () => {
+				if (!domContentLoadedExecuted) {
+					domContentLoadedExecuted = true;
+					childElements = document.querySelectorAll('.toggle_parameter_separator');
+
+					[].forEach.call(childElements, function(e) {
+						mySlide(e)
+					});
+					console.log(childElements)	
+				}
+				
+			});
+			function mySlide(e) {
+				var parentElement = e.closest('.tr')
+				var currentElement = parentElement;
+				var isParam = true;
+
+				while(isParam){
+					currentElement = next(currentElement);
+					isParam = currentElement.querySelector('div.toggle_parameter_separator') === null ? true : false;
+					if(currentElement.id == "bottom-sticker"){
+						break
+					}
+					if(isParam){
+						myToggle(currentElement);
+					}
+
+				}    
+			}
+			function myToggle(element){
+				if(element.style.display === "none"){
+					element.style.display = "block"
+				}else {
+					element.style.display = "none"
+				}
+			}
+			function next(elem) {
+				do {
+					if(!elem) {
+						return elem
+					}
+					elem = elem.nextSibling;
+				} while (elem.nodeType !== 1);
+				return elem;        
+			}
+		</script>
 	</f:block>
 </j:jelly>

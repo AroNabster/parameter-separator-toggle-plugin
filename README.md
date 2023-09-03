@@ -1,21 +1,16 @@
-# Parameter Separator Plugin
-
-[![Build Status](https://ci.jenkins.io/job/Plugins/job/parameter-separator-plugin/job/main/badge/icon)](https://ci.jenkins.io/job/Plugins/job/parameter-separator-plugin/job/main/)
-[![Jenkins Plugin](https://img.shields.io/jenkins/plugin/v/parameter-separator.svg)](https://plugins.jenkins.io/parameter-separator)
-[![GitHub Release](https://img.shields.io/github/release/jenkinsci/parameter-separator-plugin.svg?label=changelog)](https://github.com/jenkinsci/parameter-separator-plugin/releases/latest)
-[![Jenkins Plugin Installs](https://img.shields.io/jenkins/plugin/i/parameter-separator.svg?color=blue)](https://plugins.jenkins.io/parameter-separator)
+# Parameter Separator Toggle Plugin
 
 ## Introduction
 
-This is a simple plugin for Jenkins CI that allows one to clearly differentiate sets of parameters on a job build page.
-This can be useful for jobs with lots of parameters.
+This Jenkins CI plugin allows you to hide extra parameters on the job creation page, using integrated headers as buttons.
 
-Specifically, the plugin creates a stylizable separator that consists of &lt;hr /&gt; tag with an optional section header.
-The styling of both the horizontal rule and the section header can be customized, both globally and for each individual separator.
+Each header created by the plugin acts as a button that can be clicked to hide or reveal a group of parameters. This is especially useful for tasks with a large number of parameters, where users can choose which parameters they need.
+
+The plugin allows you to customize the styles of the headers and their behavior, making it a convenient tool for creating a more user-friendly and intuitive interface for managing job parameters in Jenkins CI.
 
 ### Example "Build with Parameters" page with separators
 
-![](github_site/img/job-build-1.png)
+![](github_site/img/show_params.gif)
 
 ## Installing and configuring the plugin
 
@@ -26,24 +21,6 @@ Configure default styling for your parameters in the Jenkins global configuratio
 System -> "Parameter Separator" section.
 
 ![](github_site/img/global-config.png)
-
-## Using the plugin in freestyle jobs
-
-Go to you job Configure page and add any number of parameter separator elements:
-
-![](github_site/img/job-config.png)
-
-Optionally you can use HTML, customize styles, and click Preview to see how it will look:
-
-![](github_site/img/job-config-with-preview.png)
-
-Now, go to you job's **Build with Parameters** page. You'll see you parameter groups nicely separated:
-
-![](github_site/img/job-build-4.png)
-
-When your build is ready and you go to its **Parameters** section, you'll also see separators:
-
-![](github_site/img/build-params-4.png)
 
 ## Using in pipeline jobs
 
@@ -76,11 +53,10 @@ pipeline {
 }
 ```
 
-![](github_site/img/job-build-3.png)
-
 ---
 
 ### Example usage in scripted pipeline, with section headers
+
 ```groovy
 properties([
 	parameters([
@@ -93,8 +69,6 @@ properties([
 	])
 ])
 ```
-
-![](github_site/img/job-build-2.png)
 
 ---
 
@@ -140,5 +114,3 @@ properties([
 	])
 ])
 ```
-
-![](github_site/img/job-build-4.png)
